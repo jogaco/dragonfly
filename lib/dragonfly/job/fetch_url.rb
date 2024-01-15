@@ -45,9 +45,7 @@ module Dragonfly
           update_from_data_uri
         else
           response = get_following_redirects(url)
-          Rails.logger.info("Content update before")
           job.content.update(response.body || "", 'name' => filename, 'mime_type' => response.content_type)
-          Rails.logger.info("Content update before")
         end
       end
 
